@@ -1,0 +1,17 @@
+{
+    "name": "greg/module6",
+    "description": "MVC Budget",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Greg\\Module6\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Greg H",
+            "email": "grarha@gmail.com"
+        }
+    ],
+    "require": {}
+}
