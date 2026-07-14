@@ -16,6 +16,7 @@
             <th>Limit</th>
             <th>Spent so far</th>
             <th>Remaining available</th>
+            <th>% Spent</th>
             <th>Status</th>
         </tr>
         <?php foreach ($budgets as $budget): ?>
@@ -24,6 +25,7 @@
                 <td>$<?php echo number_format($budget->getLimit(), 2); ?></td>
                 <td>$<?php echo number_format($budget->getSpent(), 2); ?></td>
                 <td>$<?php echo number_format($budget->remaining(), 2); ?></td>
+                <td><?php echo number_format($budget->percentSpent(), 1); ?>%</td>
                 <td><?php echo $budget->isOverBudget() ? 'OVER BUDGET' : 'OK'; ?></td>
             </tr>
         <?php endforeach; ?>

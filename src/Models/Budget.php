@@ -23,9 +23,16 @@ class Budget
     public function getLimit(): float { return $this->limit; }
     public function getSpent(): float { return $this->spent; }
     public function isOverBudget(): bool { return $this->spent > $this->limit; }
-    
+
     public function remaining(): float {
         $remain = $this->limit - $this->spent;
         return $remain >= 0 ? $remain : 0;
+    }
+
+    public function percentSpent(): float {
+    if ($this->limit <= 0) {
+        return 0;
+    }
+    return ($this->spent / $this->limit) * 100;
     }
 }
