@@ -4,6 +4,10 @@
 // public\index.php
 
 
-require_once 'vendor\autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$budget = new App\Models\Budget();
+use App\Controllers\BudgetController;
+
+// Instantiate the Controller and call its method
+$controller = new BudgetController();
+$controller->showReport();

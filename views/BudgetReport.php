@@ -10,9 +10,23 @@
     </head>
 <body>
     <h2>Budget Report</h2>
-    Category: <?php echo htmlspecialchars($category->getCategory()); ?>
-    Limit: <?php echo number_format($category->getLimit(), 2); ?>
-    Spent so far: <?php echo number_format($category->getSpent(), 2); ?>
-    Remaining available: <?php echo number_format($category->remaining(), 2); ?>
+    <table border='1' cellpadding='8'>
+        <tr>
+            <th>Category</th>
+            <th>Limit</th>
+            <th>Spent so far</th>
+            <th>Remaining available</th>
+            <th>Status</th>
+        </tr>
+        <?php foreach ($budgets as $budget): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($budget->getCategory()); ?></td>
+                <td>$<?php echo number_format($budget->getLimit(), 2); ?></td>
+                <td>$<?php echo number_format($budget->getSpent(), 2); ?></td>
+                <td>$<?php echo number_format($budget->remaining(), 2); ?></td>
+                <td><?php echo $budget->isOverBudget() ? 'OVER BUDGET' : 'OK'; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
 </body>
 </html>
